@@ -5,7 +5,7 @@
   "version": "1.0",
 
   "description": "Extensions who generate strong passwords for accounts. OpenSource",
-  "homepage_url": "https://github.com/Nothelsel",
+  "homepage_url": "https://github.com/Nothelsel/Passgen_Mozilla",
 
   "icons": {
     "48": "icons/lock-48.png",
