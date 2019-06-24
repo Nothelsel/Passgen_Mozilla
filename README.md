@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to PassGen_Firefox 👋</h1>
 <p>
-  <img src="https://img.shields.io/badge/version-1-blue.svg?cacheSeconds=2592000" />
+  <img src="https://img.shields.io/badge/version-1.0-blue.svg?cacheSeconds=2592000" />
 </p>
 
 > Addons mozilla who generate some stong passwords in popup
