@@ -11,6 +11,11 @@
 
 * Github: [@Nothelse](https://github.com/Nothelse)
 
+## Screenshot 
+<p align="center">
+  <img src="icons/popup_view.png" width="250" title="preview">
+</p>
+
 ## Show your support
 
 Give a ⭐️ if this project helped you!
