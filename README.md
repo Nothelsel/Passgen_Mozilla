@@ -9,12 +9,18 @@
 
 👤 **Nothelse**
 
-* Github: [@Nothelse](https://github.com/Nothelse)
+* Github: [@Nothelsel](https://github.com/Nothelsel)
 
 ## Screenshot 
 <p align="center">
   <img src="icons/popup_view.png" width="250" title="preview">
 </p>
+
+
+## Download
+
+> here https://addons.mozilla.org/fr/firefox/addon/passgen_pop/
+
 
 ## Show your support
 
