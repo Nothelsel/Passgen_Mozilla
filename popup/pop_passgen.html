@@ -1,62 +1,58 @@
 <!DOCTYPE html>
 
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="pop_passgen.css"/>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-  </head>
+    <link rel="stylesheet" href="pop_passgen.css" />
+    <link rel="stylesheet" href="bootstrap.min.css" />
+</head>
 <div class="header">
-  <p>V0.1</p>
+    <p>V1.1</p>
 </div>
 
 
-  <body>
-    <p class="ClassGen_Logo">PassGen</p>
-    <title>PassGen</title>
+<body>
+    <div class="container">
+        <p class="ClassGen_Logo">PassGen</p>
+        <title></title>
+        <h1></h1>
+        <fieldset class="fieldSet">
 
-  <fieldset>
+            <legend align="center" class="ch_opt">Choose options :</legend>
+            <div>
+                <input type="checkbox" id="symbols" name="symbols">
+                <label for="scales">Symbols</label>
+            </div>
+            <div>
+                <input type="checkbox" id="numbers" name="numbers">
+                <label for="horns">Numbers</label>
+            </div>
 
-    <legend align="center">Choose your Gen features</legend>
-  <div>
-    <input type="checkbox" id="symbols" name="symbols">
-    <label for="scales">Symbols</label>
-  </div>
-  <div>
-    <input type="checkbox" id="numbers" name="numbers">
-    <label for="horns">Numbers</label>
-  </div>
-
-  <div class="len_psw">
-    Lenght :
-  <form class="len_psw">
-    <select class="len_psw" name="len_psw" id="num_pass">
-      <option value="8">8</option>
-      <option value="10">10</option>
-      <option value="12">12</option>
-      <option value="15">15</option>
-      <option value="20">20</option>
-    </select>
-  </form>
-</div>
-  </fieldset><br>
-
-<form class="form2">
-    <textarea type="text" name="pswgen" rows="10" cols="25" id="zonetext" placeholder="Mot de passe *" required="required"></textarea><br><br>
-</form>
-
-<div class="utils_buttons">
-   <button type="button" class="block" id="generate">GEN</button>
-   <button type="button" class="block" id="clear">CLEAR</button>
-</div><br>
-
-  <div class="gitlink">
-    <a href="https://github.com/Nothelsel">Github</a>
-  </div>
+            <div class="slidecontainer">
+                <input type="range" name="" min="10" max="100" value="20" class="custom-range" id="len_pass" align="center">
+            </div>
+            <textarea class="screen_len" readonly required type="text" name="screen_len" id="screen_len" cols="1" rows="1"></textarea>
+        </fieldset><br>
 
 
-    <script src="pop_passgen.js"></script>
+        <textarea type="text" name="pswgen" rows="6" cols="25" id="zonetext" placeholder="Password *" required="required" ></textarea><br><br>
 
-  </body>
+        
+        <div class="utils_buttons">
+            <button type="button" class="block" id="generate">GEN</button>
+            <button type="button" class="block" id="copy">COPY</button>
+        </div><br>
+
+        <div id="gitlink">
+            <a href="https://github.com/Nothelsel/Passgen_Mozilla"><img src="/icons/Octocat.png" alt="GitCat" id="gitCat" width="70" style="margin-top: -40px;"></a>
+        </div>
+
+
+        <script src="pop_passgen.js"></script>
+    </div>
+
+
+</body>
 
 </html>

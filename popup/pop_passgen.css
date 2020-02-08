@@ -8,7 +8,7 @@
 
 .header p{
   position: absolute;
-  bottom: -10px;
+  bottom: -15px;
   right: 0.2rem;
   font-size: 10px;
 }
@@ -21,23 +21,29 @@ label {
     /* font-family: 'Montserrat', sans-serif; */
 }
 
-*{
-  font-family: 'Montserrat', sans-serif;
-}
+
 
 body{
-  background: #F3f3f3;
+  background:#FAF0E6;
+  width:300px;
+  height:700px;
+  overflow: hidden;
 }
 
-body .ClassGen_Logo{
-  font-weight: 700;
+.ClassGen_Logo{
   display: block;
   padding: 1rem 0;
-  font-size: 20px;
+  font-size: 25px;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
   text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.1rem;
+  text-shadow: 1px 2px 0 rgba(0,0,0,0.4),
+  -1px -2px 0 rgba(255,255,255,1);
+  
 }
+
 
 input {
     margin: .4rem;
@@ -47,20 +53,21 @@ input {
 .utils_buttons button {
   display: block;
   margin : auto;
-  border-radius: 2.5px;
-  width: 50%;
+  border-radius: 2px;
+  width: 45%;
   margin-bottom: 0.5rem;
   background: none;
   border: solid black 1px;
   padding: 0.3rem;
-  letter-spacing: 0.06rem;
+  letter-spacing: 0.2rem;
   transition: all;
   transition-duration: 0.5s;
-
+  height: 45%;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .utils_buttons button:hover{
-  background-color: black;
+  background-color: #4c6cff;
   color: white;
   border-radius: 5px;
 }
@@ -78,13 +85,47 @@ div.len_psw{
   text-align: center;
 }
 
-.gitlink{
+#gitlink{
   text-align: center;
+  margin-bottom: 100px;
 }
 
 a{
   text-decoration: none;
 }
-textarea{
+textarea[name=pswgen] {
   resize: none;
+  border-radius: 10px;
+  font-family: 'Montserrat', sans-serif;
+  margin-top: -20px;
+}
+
+.screen_len{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding: 0.2rem;
+  width: 40px;
+  height: 35px;
+  resize: none;
+  border-radius: 5px;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-Regular.ttf");
+}
+
+
+fieldSet{
+  border: 1px groove #ddd !important;
+  padding: 0 1.4em 1.4em 1.4em !important;
+  margin: 0 0 1.5em 0 !important;
+}
+  
+legend {
+  font-size: 1.2em !important;
+  font-weight: bold !important;
+  text-align: center !important;
 }

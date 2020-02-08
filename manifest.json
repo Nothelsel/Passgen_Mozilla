@@ -2,18 +2,19 @@
 
   "manifest_version": 2,
   "name": "PassGen",
-  "version": "1.0",
+  "version": "1.1",
 
   "description": "Extensions who generate strong passwords for accounts. OpenSource",
-  "homepage_url": "https://github.com/Nothelsel/Passgen_Mozilla",
+  "homepage_url": "https://github.com/Nothelsel",
 
   "icons": {
-    "48": "icons/lock-48.png",
     "96": "icons/lock-96.png"
   },
 
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "clipboardRead",
+    "clipboardWrite"
   ],
 
   "browser_action": {
@@ -25,8 +26,9 @@
 
   "content_scripts": [
     {
+      "exclude_matches": ["*://developer.mozilla.org/*"],
       "matches": ["*://*.mozilla.org/*"],
-      "js": ["passgen.js"]
+      "js": ["pop_passgen.js"]
     }
   ]
 

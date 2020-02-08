@@ -3,36 +3,35 @@
 var check_symbols = document.getElementById('symbols');
 var check_numbers = document.getElementById('numbers');
 var gener = document.getElementById('generate');
-var number_password = document.getElementById('num_pass');
+var len_password = document.getElementById('len_pass');
 var zonetext = document.getElementById('zonetext');
 var genbutt = document.getElementById('generate');
+var output = document.getElementById("screen_len");
+output.innerHTML = len_password.value;
+
+len_password.oninput = function() {
+  output.innerHTML = this.value;
+}
 
 
-
-
-
-
-
-
-
-// permet de mettre text dans zonetext
+// permet de mettre le texte dans zonetext
 document.getElementById("generate").addEventListener("click", function() {
-  document.getElementById("zonetext").value = Password.generate(number_password.value);
+  document.getElementById("zonetext").value = Password.generate(output.value);
 });
 
-// zonetext.addEventListener('text', function(e) {
-//     e.target.value = "Vous avez le focus !";
-// });
-// password_generator(number_password);
+document.getElementById("copy").addEventListener("click", function(){
+  zonetext.select();
+  document.execCommand("copy");
+  alert("Text Copied !");
+})
 
 var Password = {
 
-  _pattern : /[a-zA-Z0-9_$%ù()=\-\+\.]/,
+  _pattern : /[a-zA-Z0-9_$%ù()=\-+.*!:]/,
 
 
   _getRandomByte : function()
   {
-    // http://caniuse.com/#feat=getrandomvalues
     if(window.crypto && window.crypto.getRandomValues)
     {
       var result = new Uint8Array(1);
