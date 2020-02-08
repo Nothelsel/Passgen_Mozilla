@@ -19,7 +19,7 @@
 
 ## Download
 
-> here https://addons.mozilla.org/fr/firefox/addon/passgen_pop/
+> here https://addons.mozilla.org/fr/firefox/addon/passgenerator/
 
 
 ## Show your support
