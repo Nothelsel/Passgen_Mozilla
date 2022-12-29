@@ -26,7 +26,7 @@
     },
     
     "background": {
-      "scripts": "popup/pop_passgen.js"
+      "service_worker": "popup/pop_passgen.js"
     }
   }
   
