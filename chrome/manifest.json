@@ -5,23 +5,18 @@
     "version": "2.0",
   
     "description": "Extensions who generate strong passwords for accounts. OpenSource",
-    "homepage_url": "https://github.com/Nothelsel",
+
   
     "icons": {
       "96": "icons/lock-96.png"
     },
   
-    "app": {
-      "urls": ["http://certification.googleapps.com/app-info/"],
-      "launch": {
-          "web_url": "http://certification.googleapps.com/"
-      }
-    },
-  
+    
     "permissions": [
       "clipboardRead",
       "clipboardWrite",
-      "storage"
+      "storage",
+      "unlimitedStorage"
     ],
 
     "browser_action": {
@@ -30,12 +25,8 @@
         "default_popup": "popup/pop_passgen.html"
     },
     
-    "content_scripts": [
-      {
-        "matches": ["https://*/*", "http://*/*"],
-        "js": ["popup/pop_passgen.js"],
-        "run_at": "document_end"
-      }
-    ]
+    "background": {
+      "scripts": "popup/pop_passgen.js"
+    }
   }
   

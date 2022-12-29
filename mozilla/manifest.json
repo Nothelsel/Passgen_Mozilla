@@ -11,13 +11,6 @@
     "96": "icons/lock-96.png"
   },
 
-  "app": {
-    "urls": ["http://certification.googleapps.com/app-info/"],
-    "launch": {
-        "web_url": "http://certification.googleapps.com/"
-    }
-  },
-
   "permissions": [
     "clipboardRead",
     "clipboardWrite",
