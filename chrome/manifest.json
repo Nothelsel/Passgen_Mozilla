@@ -25,6 +25,7 @@
     
     "content_scripts": [
         {
+            "matches": [],
             "js": ["popup/pop_passgen.js"]
         }
       ]
