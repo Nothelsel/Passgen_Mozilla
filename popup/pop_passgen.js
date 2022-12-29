@@ -35,13 +35,24 @@ let Password = {
           if(this._pattern.test(result)){
             let data = readStorage('history');
             data.then((res) => {
-              let date = new Date();
-              const tmp = {
-                "date": date,
-                "password": result
+              if(res.passwords){
+                let date = new Date();
+                const tmp = {
+                  "date": date,
+                  "password": result
+                }
+                res.passwords.push(tmp);
+                writeStorage('history', res);
+              }else{
+                createStorage('history');
+                let date = new Date();
+                const tmp = {
+                  "date": date,
+                  "password": result
+                }
+                res.passwords.push(tmp);
+                writeStorage('history', res);
               }
-              res.passwords.push(tmp);
-              writeStorage('history', res);
             })
             return result;
           }
