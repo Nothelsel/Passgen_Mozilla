@@ -123,6 +123,15 @@ function copy(that) {
   inp.remove();
 }
 
+function bindCopy(selector){
+  let elements = document.querySelectorAll(selector);
+  for(let i = 0; i < elements.length; i++){
+    elements[i].addEventListener('click', function(){
+      copy(this);
+    })
+  }
+}
+
 
 function processData(data) {
   let tmp = ""
@@ -141,7 +150,9 @@ function processData(data) {
       </div>
     </div>
     `
+    bindCopy(".card-text")
   }
+  
   return tmp;
 }
 

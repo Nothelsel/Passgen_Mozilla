@@ -21,6 +21,11 @@ label {
     /* font-family: 'Montserrat', sans-serif; */
 }
 
+@font-face {
+  font-family: "Montserrat";
+  src: url(..\fonts\Montserrat-Regular.ttf);
+}
+
 
 
 body{

@@ -6,6 +6,11 @@
     border-radius: 8px;
 } */
 
+@font-face {
+  font-family: "Montserrat";
+  src: url(..\fonts\Montserrat-Regular.ttf);
+}
+
 .header p{
   position: absolute;
   bottom: -15px;
