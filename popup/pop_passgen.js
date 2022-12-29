@@ -40,7 +40,7 @@ let Password = {
     let data = readStorage('history');
     data.then(async (res) => {
       console.log(res);
-      if(res.history.passwords){
+      if(res.history && res.history.passwords){
         let date = new Date();
         const tmp = {
           "date": date,
@@ -171,9 +171,9 @@ function init(){
       return;
     }else{
       const data = readStorage('history');
-      console.log(data);
       data.then((res) => {
-        const processedData = processData(res);
+        console.log(res.history);
+        const processedData = processData(res.history);
         document.getElementById("modalConf").innerHTML = `
         <div class="modal-content customModal">
         <h5 class="modal-title mt-2">Historiques 📁</h5>
