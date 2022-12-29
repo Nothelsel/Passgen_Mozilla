@@ -188,8 +188,8 @@ function init(){
             <option value="30">30 jours</option>
             <option value="90">90 jours</option>
           </select>
-          <button type="button ml-2" style="padding: 0px 7px !important;margin-left: 2rem;" onclick="restoreStorage('history')" class="btn btn-danger">Clear</button>
         </label>
+        <button type="button ml-2" style="padding: 0px 7px !important;margin-left: 2rem;" onclick="restoreStorage('history')" class="btn btn-danger">Clear</button>
         </div>
       </div>
       `

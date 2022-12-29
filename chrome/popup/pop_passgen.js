@@ -82,8 +82,13 @@ function createStorage(name) {
 }
 
 async function readStorage(name){
+  let storageItem
   checkExistStorage(name);
-  let storageItem = await chrome.storage.sync.get(name);
+  chrome.storage.sync.get(name, function(items) {
+    if(items[name]){
+      storageItem = items[name];
+    }
+  })
   return storageItem
 }
 
