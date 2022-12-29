@@ -99,18 +99,32 @@ function deleteStorage(name){
   browser.storage.local.remove(name);
 }
 
+function formatDate(date) {
+  let d = new Date(date),
+      month = '' + (d.getMonth() + 1),
+      day = '' + d.getDate(),
+      year = d.getFullYear();
+
+  if (month.length < 2) 
+      month = '0' + month;
+  if (day.length < 2) 
+      day = '0' + day;
+
+  return [day, month, year].join('/');
+}
+
 
 function processData(data) {
   let tmp = ""
   for(let i = 0; i < data.length; i++) {
     tmp += `
-    <div class="card mt-1">
+    <div class="card mt-1 w-50">
       <div class="card-body">
        <div class="row">
-        <div class="col">
-         <p class="card-text">${data[i].date}</p>
+        <div class="col-4">
+         <p class="card-text">${formatDate(data[i].date)}</p>
         </div>
-        <div class="col">
+        <div class="col-6">
           <p class="card-text">${data[i].password}</p>
         </div>
        </div>
