@@ -65,14 +65,15 @@ function createStorage(name) {
 
 function readStorage(name){
   let storageItem = browser.storage.local.get(name);
-  storageItem.then((res) => {
-    if(res[name]){
-      return res[name];
-    }else{
-      createStorage(name);
-      return {passwords: []};
-    }
- })
+  return storageItem
+//   storageItem.then((res) => {
+//     if(res[name]){
+//       return res[name];
+//     }else{
+//       createStorage(name);
+//       return {passwords: []};
+//     }
+//  })
 }
 
 function writeStorage(name, data){
@@ -156,7 +157,10 @@ function init(){
     }else{
       const data = readStorage('history');
       console.log(data);
-      const processedData = processData(data);
+      data.then((res) => {
+        console.log(res);
+      })
+      // const processedData = processData(data);
       document.getElementById("modalConf").innerHTML = `
       <div class="modal-content customModal">
       <h5 class="modal-title mt-2">Historiques 📁</h5>
