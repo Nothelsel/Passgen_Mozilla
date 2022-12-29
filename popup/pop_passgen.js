@@ -27,39 +27,39 @@ let Password = {
   },
 
   generate : function(length){
-    return Array.apply(null, {'length': length})
+    const result = Array.apply(null, {'length': length})
       .map(function(){
         let result;
         while(true){
           result = String.fromCharCode(this._getRandomByte());
           if(this._pattern.test(result)){
-            let data = readStorage('history');
-            data.then(async (res) => {
-              console.log(res);
-              if(res.history.passwords){
-                let date = new Date();
-                const tmp = {
-                  "date": date,
-                  "password": result
-                }
-                res.history.passwords.push(tmp);
-                writeStorage('history', res.history);
-              }else{
-                await createStorage('history');
-                let date = new Date();
-                const tmp = {
-                  "date": date,
-                  "password": result
-                }
-                res.history.passwords.push(tmp);
-                writeStorage('history', res.history);
-              }
-            })
             return result;
           }
         }
-      }, this)
-      .join('');
+      }, this).join('');
+    let data = readStorage('history');
+    data.then(async (res) => {
+      console.log(res);
+      if(res.history.passwords){
+        let date = new Date();
+        const tmp = {
+          "date": date,
+          "password": result
+        }
+        res.history.passwords.push(tmp);
+        writeStorage('history', res.history);
+      }else{
+        await createStorage('history');
+        let date = new Date();
+        const tmp = {
+          "date": date,
+          "password": result
+        }
+        res.history.passwords.push(tmp);
+        writeStorage('history', res.history);
+      }
+    })
+    return result;
   }
 };
 
