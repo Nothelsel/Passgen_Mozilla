@@ -116,7 +116,7 @@ function formatDate(date) {
   let d = new Date(date),
       month = '' + (d.getMonth() + 1),
       day = '' + d.getDate(),
-      year = d.getFullYear()[2] + d.getFullYear()[3]
+      year = String(d.getFullYear())[2] + String(d.getFullYear())[3]
 
   if (month.length < 2) 
       month = '0' + month;
