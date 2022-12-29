@@ -34,13 +34,15 @@ let Password = {
           result = String.fromCharCode(this._getRandomByte());
           if(this._pattern.test(result)){
             let data = readStorage('history');
-            let date = new Date();
-            const tmp = {
-              "date": date,
-              "password": result
+            if(data){
+              let date = new Date();
+              const tmp = {
+                "date": date,
+                "password": result
+              }
+              data.passwords.push(tmp);
+              writeStorage('history', data);
             }
-            data.passwords.push(tmp);
-            writeStorage('history', data);
             return result;
           }
         }
@@ -63,21 +65,22 @@ function createStorage(name) {
   browser.storage.local.set({[name]: {passwords: []}});
 }
 
-function readStorage(name){
-  let storageItem = browser.storage.local.get(name);
+async function readStorage(name){
+  checkExistStorage(name);
+  let storageItem = await browser.storage.local.get(name);
   return storageItem
-//   storageItem.then((res) => {
-//     if(res[name]){
-//       return res[name];
-//     }else{
-//       createStorage(name);
-//       return {passwords: []};
-//     }
-//  })
 }
 
 function writeStorage(name, data){
   browser.storage.local.set({[name]: data});
+}
+
+function checkExistStorage(name){
+  browser.storage.local.get(name).then((res) => {
+    if(res[name] == undefined){
+      createStorage(name);
+    }
+  })
 }
 
 
