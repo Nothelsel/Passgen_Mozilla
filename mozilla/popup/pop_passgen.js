@@ -194,6 +194,7 @@ function init(){
         <div class="modal-body text-center">
         <label>Conservation de l'historique :
           <select class="form-select timeHistory mt-1" name="timeHistory">
+            <option value="0">Désactiver</option>
             <option selected value="1"> 1 jour</option>
             <option value="30">30 jours</option>
             <option value="90">90 jours</option>
