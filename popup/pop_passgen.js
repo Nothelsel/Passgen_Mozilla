@@ -55,7 +55,7 @@ let Password = {
           "date": date,
           "password": result
         }
-        res.history.passwords.push(tmp);
+        res.history?.passwords?.push(tmp) || (res.history = {passwords: [tmp]});
         writeStorage('history', res.history);
       }
     })
