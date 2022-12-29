@@ -17,17 +17,11 @@
       "storage"
     ],
 
-    "browser_action": {
-        "default_icon": "icons/lock-96.png",
-        "default_title": "PassGen",
-        "default_popup": "popup/pop_passgen.html"
-    },
-    
-    "content_scripts": [
-        {
-            "matches": [],
-            "js": ["popup/pop_passgen.js"]
-        }
-      ]
+    "action": {
+      "default_popup": "popup/pop_passgen.html",
+      "default_icon": {
+          "128": "/icons/lock-128.png"
+      }
+    }
   }
   
