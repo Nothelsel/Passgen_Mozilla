@@ -172,17 +172,17 @@ function init(){
       const data = readStorage('history');
       console.log(data);
       data.then((res) => {
-        console.log(res);
-      })
-      // const processedData = processData(data);
-      document.getElementById("modalConf").innerHTML = `
-      <div class="modal-content customModal">
-      <h5 class="modal-title mt-2">Historiques 📁</h5>
-        <div class="modal-body">
-        
+        const processedData = processData(res);
+        document.getElementById("modalConf").innerHTML = `
+        <div class="modal-content customModal">
+        <h5 class="modal-title mt-2">Historiques 📁</h5>
+          <div class="modal-body">
+            ${processedData}
+          </div>
         </div>
-      </div>
-    `}
+      `
+      })
+      }
   })
   
   check_symbols.addEventListener('change', function() {
