@@ -1,6 +1,6 @@
 {
 
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "PassGen",
     "version": "2.0",
   
@@ -25,7 +25,6 @@
     
     "content_scripts": [
         {
-            "matches": ["https://*/*", "http://*/*"],
             "js": ["popup/pop_passgen.js"]
         }
       ]
