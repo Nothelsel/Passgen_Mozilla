@@ -25,15 +25,15 @@
     ],
 
     "browser_action": {
-        "default_icon": "../icons/lock-96.png",
+        "default_icon": "icons/lock-96.png",
         "default_title": "PassGen",
-        "default_popup": "../popup/pop_passgen.html"
+        "default_popup": "popup/pop_passgen.html"
     },
     
     "content_scripts": [
       {
         "matches": ["https://*/*", "http://*/*"],
-        "js": ["../js/pop_passgen.js"],
+        "js": ["popup/pop_passgen.js"],
         "run_at": "document_end"
       }
     ]

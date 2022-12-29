@@ -26,9 +26,9 @@
   ],
 
   "browser_action": {
-    "default_icon": "../icons/lock-96.png",
+    "default_icon": "icons/lock-96.png",
     "default_title": "PassGen",
-    "default_popup": "../popup/pop_passgen.html"
+    "default_popup": "popup/pop_passgen.html"
   },
 
   "browser_specific_settings": {
@@ -42,7 +42,7 @@
     {
       "exclude_matches": ["*://developer.mozilla.org/*"],
       "matches": ["*://*.mozilla.org/*"],
-      "js": ["../pop_passgen.js"]
+      "js": ["pop_passgen.js"]
     }
   ]
 
