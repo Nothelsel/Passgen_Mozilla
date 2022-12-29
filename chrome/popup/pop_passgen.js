@@ -74,21 +74,21 @@ function setDefault() {
 }
 
 async function createStorage(name) {
-  await browser.storage.local.set({[name]: {passwords: []}});
+  await chrome.storage.local.set({[name]: {passwords: []}});
 }
 
 async function readStorage(name){
   checkExistStorage(name);
-  let storageItem = await browser.storage.local.get(name);
+  let storageItem = await chrome.storage.local.get(name);
   return storageItem
 }
 
 function writeStorage(name, data){
-  browser.storage.local.set({[name]: data});
+  chrome.storage.local.set({[name]: data});
 }
 
 function checkExistStorage(name){
-  browser.storage.local.get(name).then(async (res) => {
+  chrome.storage.local.get(name).then(async (res) => {
     if(res[name] == undefined){
       await createStorage(name);
     }
@@ -96,7 +96,7 @@ function checkExistStorage(name){
 }
 
 function deleteStorage(name){
-  browser.storage.local.remove(name);
+  chrome.storage.local.remove(name);
 }
 
 function formatDate(date) {
