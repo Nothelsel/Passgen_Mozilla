@@ -43,7 +43,7 @@ let Password = {
                   "password": result
                 }
                 res.history.passwords.push(tmp);
-                writeStorage('history', res);
+                writeStorage('history', res.history);
               }else{
                 await createStorage('history');
                 let date = new Date();
@@ -52,7 +52,7 @@ let Password = {
                   "password": result
                 }
                 res.history.passwords.push(tmp);
-                writeStorage('history', res);
+                writeStorage('history', res.history);
               }
             })
             return result;
