@@ -1,0 +1,41 @@
+{
+
+    "manifest_version": 3,
+    "name": "PassGen",
+    "version": "2.0",
+  
+    "description": "Extensions who generate strong passwords for accounts. OpenSource",
+    "homepage_url": "https://github.com/Nothelsel",
+  
+    "icons": {
+      "96": "icons/lock-96.png"
+    },
+  
+    "app": {
+      "urls": ["http://certification.googleapps.com/app-info/"],
+      "launch": {
+          "web_url": "http://certification.googleapps.com/"
+      }
+    },
+  
+    "permissions": [
+      "clipboardRead",
+      "clipboardWrite",
+      "storage"
+    ],
+
+    "browser_action": {
+        "default_icon": "../icons/lock-96.png",
+        "default_title": "PassGen",
+        "default_popup": "../popup/pop_passgen.html"
+    },
+    
+    "content_scripts": [
+      {
+        "matches": ["https://*/*", "http://*/*"],
+        "js": ["../js/pop_passgen.js"],
+        "run_at": "document_end"
+      }
+    ]
+  }
+  
