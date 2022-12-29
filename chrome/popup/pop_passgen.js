@@ -40,7 +40,7 @@ let Password = {
     let data = readStorage('history');
     data.then(async (res) => {
       console.log(res);
-      if(res.history && res.history.passwords){
+      if(res && res.history && res.history.passwords){
         let date = new Date();
         const tmp = {
           "date": date,
@@ -49,13 +49,13 @@ let Password = {
         res.history.passwords.push(tmp);
         writeStorage('history', res.history);
       }else{
-        await createStorage('history');
+        createStorage('history');
         let date = new Date();
         const tmp = {
           "date": date,
           "password": result
         }
-        res.history?.passwords?.push(tmp) || (res.history = {passwords: [tmp]});
+        res.history?.passwords?.push(tmp) || (res.history = {passwords: [tmp]}) || (res = {history: {passwords: [tmp]}});
         writeStorage('history', res.history);
       }
     })
