@@ -144,7 +144,7 @@ function processData(data) {
          <p class="card-text" style="font-size: 12px;">${formatDate(data[i].date)}</p>
         </div>
         <div class="col-8">
-          <p class="card-text" onclick="copy(this)" style="font-size: 12px;cursor: pointer;">${data[i].password}</p>
+          <p class="card-text" style="font-size: 12px;cursor: pointer;">${data[i].password}</p>
         </div>
        </div>
       </div>
