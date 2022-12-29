@@ -8,7 +8,7 @@
   "homepage_url": "https://github.com/Nothelsel",
 
   "icons": {
-    "96": "icons/lock-96.png"
+    "96": "./icons/lock-96.png"
   },
 
   "permissions": [
@@ -17,12 +17,7 @@
     "storage"
   ],
 
-  "browser_action": {
-    "default_icon": "icons/lock-96.png",
-    "default_title": "PassGen",
-    "default_popup": "popup/pop_passgen.html"
-  },
-
+  
   "browser_specific_settings": {
     "gecko": {
       "strict_min_version": "54.0a1"
@@ -34,8 +29,14 @@
     {
       "exclude_matches": ["*://developer.mozilla.org/*"],
       "matches": ["*://*.mozilla.org/*"],
-      "js": ["popup/pop_passgen.js"]
+      "js": ["./popup/pop_passgen.js"]
     }
-  ]
+  ],
+
+  "browser_action": {
+    "default_icon": "./icons/lock-96.png",
+    "default_title": "PassGen",
+    "default_popup": "./popup/pop_passgen.html"
+  }
 
 }
