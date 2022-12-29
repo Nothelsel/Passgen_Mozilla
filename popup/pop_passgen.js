@@ -34,7 +34,8 @@ let Password = {
           result = String.fromCharCode(this._getRandomByte());
           if(this._pattern.test(result)){
             let data = readStorage('history');
-            data.then((res) => {
+            data.then(async (res) => {
+              console.log(res);
               if(res.passwords){
                 let date = new Date();
                 const tmp = {
@@ -44,7 +45,7 @@ let Password = {
                 res.passwords.push(tmp);
                 writeStorage('history', res);
               }else{
-                createStorage('history');
+                await createStorage('history');
                 let date = new Date();
                 const tmp = {
                   "date": date,
@@ -72,8 +73,8 @@ function setDefault() {
   document.getElementById("zonetext").value = Password.generate(output.value);
 }
 
-function createStorage(name) {
-  browser.storage.local.set({[name]: {passwords: []}});
+async function createStorage(name) {
+  await browser.storage.local.set({[name]: {passwords: []}});
 }
 
 async function readStorage(name){
@@ -87,9 +88,9 @@ function writeStorage(name, data){
 }
 
 function checkExistStorage(name){
-  browser.storage.local.get(name).then((res) => {
+  browser.storage.local.get(name).then(async (res) => {
     if(res[name] == undefined){
-      createStorage(name);
+      await createStorage(name);
     }
   })
 }
