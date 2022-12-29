@@ -165,3 +165,8 @@ input, textarea, select, a { outline: none; }
   font-weight: bold;
 }
 
+.textHistory{
+  text-align: center;
+  font-size: 1rem;
+}
+

@@ -103,7 +103,7 @@ function formatDate(date) {
   let d = new Date(date),
       month = '' + (d.getMonth() + 1),
       day = '' + d.getDate(),
-      year = d.getFullYear();
+      year = d.getFullYear()[2] + d.getFullYear()[3]
 
   if (month.length < 2) 
       month = '0' + month;
@@ -113,19 +113,29 @@ function formatDate(date) {
   return [day, month, year].join('/');
 }
 
+function copy(that) {
+  var inp =document.createElement('input');
+  document.body.appendChild(inp)
+  inp.value =that.textContent
+  inp.select();
+  inp.style.backgroundColor = "#00ff005e";
+  document.execCommand('copy',false);
+  inp.remove();
+}
+
 
 function processData(data) {
   let tmp = ""
   for(let i = 0; i < data.length; i++) {
     tmp += `
-    <div class="card mt-1 w-50">
-      <div class="card-body">
+    <div class="card mt-1">
+      <div class="card-body" style="padding: 4px !important">
        <div class="row">
-        <div class="col-4">
-         <p class="card-text">${formatDate(data[i].date)}</p>
+        <div class="col-4 d-flex justify-content-end" style="border-right: 1px solid black;">
+         <p class="card-text" style="font-size: 12px;">${formatDate(data[i].date)}</p>
         </div>
-        <div class="col-6">
-          <p class="card-text">${data[i].password}</p>
+        <div class="col-8">
+          <p class="card-text" onclick="copy(this)" style="font-size: 12px;cursor: pointer;">${data[i].password}</p>
         </div>
        </div>
       </div>
@@ -175,7 +185,7 @@ function init(){
             <option value="30">30 jours</option>
             <option value="90">90 jours</option>
           </select>
-          <button type="button" onclick="deleteStorage('history')" class="btn btn-danger">Clear</button>
+          <button type="button ml-2" style="padding: 0px 7px !important;margin-left: 2rem;" onclick="deleteStorage('history')" class="btn btn-danger">Clear</button>
         </label>
         </div>
       </div>
@@ -195,7 +205,7 @@ function init(){
         document.getElementById("modalConf").innerHTML = `
         <div class="modal-content customModal">
         <h5 class="modal-title mt-2">Historiques 📁</h5>
-          <div class="modal-body">
+          <div class="modal-body" style="padding: 4px">
             ${processedData}
           </div>
         </div>
