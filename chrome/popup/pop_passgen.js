@@ -87,10 +87,9 @@ function createStorage(name) {
 async function readStorage(name){
   let storageItem
   checkExistStorage(name);
-  chrome.storage.local.get(name, function(items) {
-    if(items[name]){
-      storageItem = items[name];
-    }
+  chrome.storage.local.get(name, function(item) {
+    console.log(item);
+    storageItem = item[name]
   })
   return storageItem
 }
