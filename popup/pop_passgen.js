@@ -95,6 +95,10 @@ function checkExistStorage(name){
   })
 }
 
+function deleteStorage(name){
+  browser.storage.local.remove(name);
+}
+
 
 function processData(data) {
   let tmp = ""
@@ -157,6 +161,7 @@ function init(){
             <option value="30">30 jours</option>
             <option value="90">90 jours</option>
           </select>
+          <button type="button" onclick="deleteStorage('history')" class="btn btn-danger">Clear</button>
         </label>
         </div>
       </div>
@@ -172,8 +177,7 @@ function init(){
     }else{
       const data = readStorage('history');
       data.then((res) => {
-        console.log(res.history);
-        const processedData = processData(res.history);
+        const processedData = processData(res.history.passwords);
         document.getElementById("modalConf").innerHTML = `
         <div class="modal-content customModal">
         <h5 class="modal-title mt-2">Historiques 📁</h5>
