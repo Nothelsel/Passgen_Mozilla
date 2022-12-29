@@ -77,7 +77,7 @@ function setDefault() {
 }
 
 function createStorage(name) {
-  chrome.storage.sync.set({ [name]: {passwords: []} }, function() {
+  chrome.storage.local.set({ [name]: {passwords: []} }, function() {
     if (chrome.runtime.error) {
       console.log("Runtime error createStorage.");
     }
@@ -87,7 +87,7 @@ function createStorage(name) {
 async function readStorage(name){
   let storageItem
   checkExistStorage(name);
-  chrome.storage.sync.get(name, function(items) {
+  chrome.storage.local.get(name, function(items) {
     if(items[name]){
       storageItem = items[name];
     }
@@ -96,7 +96,7 @@ async function readStorage(name){
 }
 
 function writeStorage(name, data){
-  chrome.storage.sync.set({ [name]: data }, function() {
+  chrome.storage.local.set({ [name]: data }, function() {
     if (chrome.runtime.error) {
       console.log("Runtime error.");
     }
@@ -104,13 +104,13 @@ function writeStorage(name, data){
 }
 
 function checkExistStorage(name){
-  chrome.storage.sync.get(name, function(items) {
+  chrome.storage.local.get(name, function(items) {
     if(!items[name]) createStorage(name)
   });
 }
 
 function deleteStorage(){
-  chrome.storage.sync.clear();
+  chrome.storage.local.remove();
 }
 
 function formatDate(date) {
