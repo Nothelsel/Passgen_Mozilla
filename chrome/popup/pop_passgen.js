@@ -76,7 +76,7 @@ function setDefault() {
 function createStorage(name) {
   chrome.storage.sync.set({ [name]: {passwords: []} }, function() {
     if (chrome.runtime.error) {
-      console.log("Runtime error.");
+      console.log("Runtime error createStorage.");
     }
   });
 }
@@ -106,12 +106,8 @@ function checkExistStorage(name){
   });
 }
 
-function deleteStorage(name){
-  chrome.storage.sync.set({ [name]: {passwords: []} }, function() {
-    if (chrome.runtime.error) {
-      console.log("Runtime error.");
-    }
-  });
+function deleteStorage(){
+  chrome.storage.sync.clear();
 }
 
 function formatDate(date) {
