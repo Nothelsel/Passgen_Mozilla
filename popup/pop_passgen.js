@@ -36,13 +36,13 @@ let Password = {
             let data = readStorage('history');
             data.then(async (res) => {
               console.log(res);
-              if(res.passwords){
+              if(res.history.passwords){
                 let date = new Date();
                 const tmp = {
                   "date": date,
                   "password": result
                 }
-                res.passwords.push(tmp);
+                res.history.passwords.push(tmp);
                 writeStorage('history', res);
               }else{
                 await createStorage('history');
@@ -51,7 +51,7 @@ let Password = {
                   "date": date,
                   "password": result
                 }
-                res.passwords.push(tmp);
+                res.history.passwords.push(tmp);
                 writeStorage('history', res);
               }
             })
