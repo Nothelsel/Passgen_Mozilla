@@ -96,7 +96,10 @@ function checkExistStorage(name){
 }
 
 async function restoreStorage(name){
-  await browser.storage.local.set({[name]: {passwords: []}});
+  console.log('restore');
+  await browser.storage.local.set({[name]: {passwords: []}}).then(() => {
+    console.log('restored');
+  })
 }
 
 function formatDate(date) {

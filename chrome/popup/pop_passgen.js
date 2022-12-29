@@ -73,30 +73,40 @@ function setDefault() {
   document.getElementById("zonetext").value = Password.generate(output.value);
 }
 
-async function createStorage(name) {
-  await chrome.storage.local.set({[name]: {passwords: []}});
+function createStorage(name) {
+  chrome.storage.sync.set({ [name]: {passwords: []} }, function() {
+    if (chrome.runtime.error) {
+      console.log("Runtime error.");
+    }
+  });
 }
 
 async function readStorage(name){
   checkExistStorage(name);
-  let storageItem = await chrome.storage.local.get([name]);
+  let storageItem = await chrome.storage.sync.get(name);
   return storageItem
 }
 
 function writeStorage(name, data){
-  chrome.storage.local.set({[name]: data});
+  chrome.storage.sync.set({ [name]: data }, function() {
+    if (chrome.runtime.error) {
+      console.log("Runtime error.");
+    }
+  });
 }
 
 function checkExistStorage(name){
-  chrome.storage.local.get([name]).then(async (res) => {
-    if(res[name] == undefined){
-      await createStorage(name);
-    }
-  })
+  chrome.storage.sync.get(name, function(items) {
+    if(!items[name]) createStorage(name)
+  });
 }
 
-async function deleteStorage(name){
-  await chrome.storage.local.set({[name]: {passwords: []}});
+function deleteStorage(name){
+  chrome.storage.sync.set({ [name]: {passwords: []} }, function() {
+    if (chrome.runtime.error) {
+      console.log("Runtime error.");
+    }
+  });
 }
 
 function formatDate(date) {
@@ -201,12 +211,13 @@ function init(){
     }else{
       const data = readStorage('history');
       data.then((res) => {
-        const processedData = processData(res.history.passwords);
+        console.log(res);
+        // const processedData = processData(res.history.passwords);
         document.getElementById("modalConf").innerHTML = `
         <div class="modal-content customModal">
         <h5 class="modal-title mt-2">Historiques 📁</h5>
           <div class="modal-body" style="padding: 4px">
-            ${processedData}
+
           </div>
         </div>
       `
