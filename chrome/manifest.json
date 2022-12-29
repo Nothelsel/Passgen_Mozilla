@@ -15,8 +15,7 @@
     "permissions": [
       "clipboardRead",
       "clipboardWrite",
-      "storage",
-      "unlimitedStorage"
+      "storage"
     ],
 
     "browser_action": {
@@ -27,7 +26,8 @@
     
     "content_scripts": [
         {
-          "js": ["pop_passgen.js"]
+            "matches": ["https://*/*", "http://*/*"],
+            "js": ["pop_passgen.js"]
         }
       ]
   }

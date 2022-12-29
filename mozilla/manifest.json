@@ -14,8 +14,7 @@
   "permissions": [
     "clipboardRead",
     "clipboardWrite",
-    "storage",
-    "unlimitedStorage"
+    "storage"
   ],
 
   "browser_action": {
