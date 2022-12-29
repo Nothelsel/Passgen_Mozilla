@@ -1,10 +1,7 @@
-/* .header  {
-    height: 0px;
-    margin: 0;
-    background : #A7A8A8;
-    text-align: center;
-    border-radius: 8px;
-} */
+html{
+  overflow-y: hidden;
+  height: 100%;
+}
 
 @font-face {
   font-family: "Montserrat";
@@ -18,10 +15,7 @@
   font-size: 10px;
 }
 
-html{
-  overflow-y: hidden;
-  height: 100%;
-}
+
 
 .header,
 p,
@@ -35,7 +29,6 @@ label {
 body{
   background:#FAF0E6;
   width:300px;
-  overflow: hidden;
 }
 
 .ClassGen_Logo{

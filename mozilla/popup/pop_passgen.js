@@ -204,6 +204,10 @@ function init(){
         </div>
       </div>
       `
+      //get timeHistory element html by name selector and get value
+      document.querySelector('select[name=timeHistory]').addEventListener('change', function(){
+        writeStorage('options', this.value);
+      })
     }
   })
 
@@ -253,4 +257,4 @@ function init(){
   setDefault()
 }
 
-window.addEventListener("load", init, false);
+window.addEventListener("load", init, false)

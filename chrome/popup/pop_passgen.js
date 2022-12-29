@@ -202,15 +202,15 @@ function init(){
       document.getElementById("modalConf").innerHTML = `
       <div class="modal-content customModal">
         <h5 class="modal-title mt-2">Configuration ⚙️</h5>
-        <div class="modal-body">
+        <div class="modal-body text-center">
         <label>Conservation de l'historique :
           <select class="form-select timeHistory mt-1" name="timeHistory">
             <option selected value="1"> 1 jour</option>
             <option value="30">30 jours</option>
             <option value="90">90 jours</option>
           </select>
-          <button type="button ml-2" style="padding: 0px 7px !important;margin-left: 2rem;" onclick="deleteStorage('history')" class="btn btn-danger">Clear</button>
         </label>
+        <button type="button" style="padding: 0px 7px !important" onclick="deleteStorage('history')" class="btn btn-danger">Clear</button>
         </div>
       </div>
       `
