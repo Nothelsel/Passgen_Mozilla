@@ -34,7 +34,7 @@
     {
       "exclude_matches": ["*://developer.mozilla.org/*"],
       "matches": ["*://*.mozilla.org/*"],
-      "js": ["pop_passgen.js"]
+      "js": ["popup/pop_passgen.js"]
     }
   ]
 
