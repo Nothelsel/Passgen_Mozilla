@@ -37,28 +37,7 @@ let Password = {
           }
         }
       }, this).join('');
-    let data = readStorage('history');
-    data.then(async (res) => {
-      console.log(res);
-      if(res.history && res.history.passwords){
-        let date = new Date();
-        const tmp = {
-          "date": date,
-          "password": result
-        }
-        res.history.passwords.push(tmp);
-        writeStorage('history', res.history);
-      }else{
-        await createStorage('history');
-        let date = new Date();
-        const tmp = {
-          "date": date,
-          "password": result
-        }
-        res.history?.passwords?.push(tmp) || (res.history = {passwords: [tmp]});
-        writeStorage('history', res.history);
-      }
-    })
+    
     return result;
   }
 };
@@ -96,6 +75,7 @@ function checkExistStorage(name){
 }
 
 async function restoreStorage(name){
+  console.log(name);
   browser.storage.local.clear()
 }
 
@@ -179,6 +159,28 @@ function init(){
     zonetext.select();
     document.execCommand("copy");
     copybutt.textContent = "Copied!";
+    let data = readStorage('history');
+    data.then(async (res) => {
+      console.log(res);
+      if(res.history && res.history.passwords){
+        let date = new Date();
+        const tmp = {
+          "date": date,
+          "password": zonetext.value
+        }
+        res.history.passwords.push(tmp);
+        writeStorage('history', res.history);
+      }else{
+        await createStorage('history');
+        let date = new Date();
+        const tmp = {
+          "date": date,
+          "password": zonetext.value
+        }
+        res.history?.passwords?.push(tmp) || (res.history = {passwords: [tmp]});
+        writeStorage('history', res.history);
+      }
+    })
   })
 
   document.getElementById("configBtn").addEventListener("click", function(){
@@ -189,7 +191,7 @@ function init(){
       document.getElementById("modalConf").innerHTML = `
       <div class="modal-content customModal">
         <h5 class="modal-title mt-2">Configuration ⚙️</h5>
-        <div class="modal-body">
+        <div class="modal-body text-center">
         <label>Conservation de l'historique :
           <select class="form-select timeHistory mt-1" name="timeHistory">
             <option selected value="1"> 1 jour</option>
@@ -197,7 +199,7 @@ function init(){
             <option value="90">90 jours</option>
           </select>
         </label>
-        <button type="button ml-2" style="padding: 0px 7px !important;margin-left: 2rem;" onclick="restoreStorage('history')" class="btn btn-danger">Clear</button>
+        <button type="button" style="padding: 0px 7px !important;" onclick="restoreStorage('history')" class="btn btn-danger">Clear</button>
         </div>
       </div>
       `

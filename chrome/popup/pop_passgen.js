@@ -37,31 +37,7 @@ let Password = {
           }
         }
       }, this).join('');
-    let data = readStorage('history');
-    data.then(async (res) => {
-      if(res && res.history && res.history.passwords){
-        let date = new Date();
-        const tmp = {
-          "date": date,
-          "password": result
-        }
-        res.history.passwords.push(tmp);
-        writeStorage('history', res.history);
-      }else{
-        createStorage('history');
-        let date = new Date();
-        const tmp = {
-          "date": date,
-          "password": result
-        }
-        if(res) {
-          res.history?.passwords?.push(tmp) || (res.history = {passwords: [tmp]})
-        } else {
-          res = {history: {passwords: [tmp]}}
-        }
-        writeStorage('history', res.history);
-      }
-    })
+    
     return result;
   }
 };
@@ -191,6 +167,31 @@ function init(){
     zonetext.select();
     document.execCommand("copy");
     copybutt.textContent = "Copied!";
+    let data = readStorage('history');
+    data.then(async (res) => {
+      if(res && res.history && res.history.passwords){
+        let date = new Date();
+        const tmp = {
+          "date": date,
+          "password": zonetext.value
+        }
+        res.history.passwords.push(tmp);
+        writeStorage('history', res.history);
+      }else{
+        createStorage('history');
+        let date = new Date();
+        const tmp = {
+          "date": date,
+          "password": zonetext.value
+        }
+        if(res) {
+          res.history?.passwords?.push(tmp) || (res.history = {passwords: [tmp]})
+        } else {
+          res = {history: {passwords: [tmp]}}
+        }
+        writeStorage('history', res.history);
+      }
+    })
   })
 
   document.getElementById("configBtn").addEventListener("click", function(){
