@@ -34,15 +34,15 @@ let Password = {
           result = String.fromCharCode(this._getRandomByte());
           if(this._pattern.test(result)){
             let data = readStorage('history');
-            if(data){
+            data.then((res) => {
               let date = new Date();
               const tmp = {
                 "date": date,
                 "password": result
               }
-              data.passwords.push(tmp);
-              writeStorage('history', data);
-            }
+              res.passwords.push(tmp);
+              writeStorage('history', res);
+            })
             return result;
           }
         }
