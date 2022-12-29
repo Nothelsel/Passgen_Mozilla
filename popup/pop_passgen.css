@@ -32,7 +32,6 @@ body{
 
 .ClassGen_Logo{
   display: block;
-  padding: 1rem 0;
   font-size: 25px;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
@@ -98,6 +97,9 @@ textarea[name=pswgen] {
   border-radius: 10px;
   font-family: 'Montserrat', sans-serif;
   margin-top: -20px;
+  border-style: solid;
+  width: 100%;
+  padding: 10px 10px;
 }
 
 .screen_len{
@@ -129,3 +131,37 @@ legend {
   font-weight: bold !important;
   text-align: center !important;
 }
+
+input, textarea, select, a { outline: none; }
+
+.configBtn{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    background-color: white;
+}
+
+.historyBtn{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    background-color: white;
+}
+
+#modalConf{
+  position: absolute;
+  top: 3rem;
+  width: 17rem;
+  height: 5rem;
+ /* add sweet shadow */
+ box-shadow: 1px rgba(0,0,0,0.5);
+}
+
+.modal-title{
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+

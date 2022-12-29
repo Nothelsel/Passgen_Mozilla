@@ -8,24 +8,33 @@
     <link rel="stylesheet" href="bootstrap.min.css" />
 </head>
 <div class="header">
-    <p>V1.2</p>
+    <p>V2.0</p>
 </div>
 
 
 <body>
     <div class="container">
+        <div class="row btnTop mt-2">
+            <div class="col d-flex justify-content-start">
+                <button id="configBtn" class="configBtn">⚙️</button>
+                
+            </div>
+            <div class="col d-flex justify-content-end">
+                <button id="historyBtn" class="historyBtn">📁</button>
+            </div>
+        </div>
         <p class="ClassGen_Logo">PassGen</p>
         <title></title>
         <h1></h1>
+        <div id="modalConf"></div>
         <fieldset class="fieldSet">
-
             <legend align="center" class="ch_opt">Choose options :</legend>
             <div>
-                <input type="checkbox" id="symbols" name="symbols">
+                <input type="checkbox" checked  id="symbols" name="symbols">
                 <label for="scales">Symbols</label>
             </div>
             <div>
-                <input type="checkbox" id="numbers" name="numbers">
+                <input type="checkbox" checked  id="numbers" name="numbers">
                 <label for="horns">Numbers</label>
             </div>
 
@@ -40,7 +49,7 @@
 
         
         <div class="utils_buttons">
-            <button type="button" class="block" id="generate">GEN</button>
+            <button type="button" class="block" id="generate">GEN 🔑</button>
             <button type="button" class="block" id="copy">COPY</button>
         </div><br>
 
