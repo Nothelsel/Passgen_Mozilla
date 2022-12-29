@@ -60,17 +60,23 @@ function setDefault() {
 }
 
 function createStorage(name) {
-  window.browser.storage.local.set({[name]: {passwords: []}});
+  browser.storage.local.set({[name]: {passwords: []}});
 }
 
 function readStorage(name){
-  let storageItem = window.browser.storage.local.get(name);
-  if(storageItem) return storageItem;
-  createStorage(name);
+  let storageItem = browser.storage.local.get(name);
+  storageItem.then((res) => {
+    if(res[name]){
+      return res[name];
+    }else{
+      createStorage(name);
+      return {passwords: []};
+    }
+ })
 }
 
 function writeStorage(name, data){
-  this.browser.storage.local.set({[name]: data});
+  browser.storage.local.set({[name]: data});
 }
 
 
