@@ -96,7 +96,7 @@ function checkExistStorage(name){
 }
 
 function deleteStorage(name){
-  browser.storage.local.remove(name);
+  browser.storage.local.remove([name]);
 }
 
 function formatDate(date) {

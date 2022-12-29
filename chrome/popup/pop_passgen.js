@@ -79,7 +79,7 @@ async function createStorage(name) {
 
 async function readStorage(name){
   checkExistStorage(name);
-  let storageItem = await chrome.storage.local.get(name);
+  let storageItem = await chrome.storage.local.get([name]);
   return storageItem
 }
 
@@ -96,7 +96,7 @@ function checkExistStorage(name){
 }
 
 function deleteStorage(name){
-  chrome.storage.local.remove(name);
+  chrome.storage.local.remove([name]);
 }
 
 function formatDate(date) {
